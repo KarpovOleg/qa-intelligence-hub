@@ -23,6 +23,5 @@ export const data = defineData({
   schema,
   authorizationModes: {
     defaultAuthorizationMode: 'apiKey',
-    apiKeyConfig: { expiresRemainingDays: 30 }
   }
 });
