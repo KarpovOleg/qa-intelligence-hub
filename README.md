@@ -1,73 +1,40 @@
-# React + TypeScript + Vite
+# 🚀 Intelligent Quality Engineering Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, AI-augmented Quality Observability Platform built with **AWS Amplify Gen 2**, **React 19**, and **Playwright**. This system demonstrates a closed-loop "Shift-Right" strategy by streaming real-time test telemetry to a cloud-native backend for automated AI triage.
 
-Currently, two official plugins are available:
+## 🛠 Tech Stack (2026 Standard)
+- **Frontend:** React 19, TypeScript, Vite, Recharts (Observability)
+- **Backend:** AWS Amplify Gen 2 (Infrastructure-as-Code)
+- **Database:** Amazon DynamoDB (Serverless NoSQL)
+- **AI/Logic:** AWS Lambda + Amazon Bedrock (Claude 3.5 Agentic Analysis)
+- **Automation:** Playwright (Custom AWS Telemetry Reporter)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🏃‍♂️ Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Prerequisites
+- **Node.js:** v22.x or v24.x (LTS)
+- **AWS CLI:** Configured with an active IAM profile
+- **Environment:** Access to an AWS Account (Active 2026 Free Tier)
 
-## Expanding the ESLint configuration
+### 2. Initial Setup
+```bash
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Install dependencies using 2026 legacy resolution
+npm install --legacy-peer-deps
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Install Playwright browsers
+npx playwright install chromium
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Local Development (Cloud Sandbox)
+npx ampx sandbox
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# Launches dashboard at http://localhost:5173
+npm run dev
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# Triggers real-time telemetry sync to DynamoDB
+npx playwright test
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# Fetches the live Production outputs
+npx ampx generate outputs --app-id YOUR_APP_ID --branch main

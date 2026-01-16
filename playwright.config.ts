@@ -8,6 +8,7 @@ export default defineConfig({
     ['./tests/aws-reporter.ts']
   ],
   use: {
+    baseURL: 'https://main.d1kx4pj42arenf.amplifyapp.com/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
