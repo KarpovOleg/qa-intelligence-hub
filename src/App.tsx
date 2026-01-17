@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Dashboard from './Dashboard'; // Move your current dashboard code here
+import Dashboard from './Dashboard';
 import About from './About';
 
 export default function App() {

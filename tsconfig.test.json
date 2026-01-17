@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM"], // DOM needed for locator types
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "strict": true,
+    "types": ["node", "@playwright/test"] // Crucial for tests
+  },
+  "include": [
+    "tests/**/*.ts",
+    "utils/**/*.ts",
+    "amplify/**/*.ts",
+    "environment.d.ts"
+  ]
+}
