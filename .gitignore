@@ -17,6 +17,7 @@ test-results
 playwright-report
 blob-report
 .env
+*.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
