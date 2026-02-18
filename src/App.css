@@ -97,21 +97,40 @@ body {
   gap: 24px;
 }
 
+.dashboard-grid > * {
+  min-width: 0;
+}
+
 .card {
   background-color: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 24px;
   transition: transform 0.2s ease;
+  min-width: 0;
 }
 
-.card:hover { transform: translateY(-3px); border-color: var(--accent-color); }
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-color);
+}
 
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 12px;
+  gap: 12px;
+  min-width: 0;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.25;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .status-badge {
@@ -119,6 +138,7 @@ body {
   font-weight: 800;
   padding: 4px 10px;
   border-radius: 4px;
+  flex: 0 0 auto;
 }
 
 .status-FAILED {
@@ -134,6 +154,14 @@ body {
   border: 1px solid var(--success);
 }
 
+.framework-tag {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .log-preview {
   font-family: 'Fira Code', monospace;
   font-size: 0.75rem;
@@ -142,9 +170,25 @@ body {
   border-radius: 6px;
   margin: 12px 0;
   color: #fbbf24;
+
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+
+  max-height: 240px;
+  overflow: auto; /* scroll inside box if needed */
 }
 
-.success-log { color: var(--success) !important; }
+
+.log-preview {  }
+
+.success-log {
+  color: var(--success) !important;
+}
 
 .ai-analysis-box {
   margin-top: 15px;
@@ -152,6 +196,7 @@ body {
   background: rgba(56, 189, 248, 0.05);
   border-left: 4px solid var(--accent-color);
   border-radius: 4px;
+  min-width: 0;
 }
 
 .ai-analysis-box strong {
@@ -162,6 +207,13 @@ body {
   text-transform: uppercase;
 }
 
+.ai-analysis-box p {
+  margin: 0;
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .empty-state {
   grid-column: 1 / -1;
   text-align: center;
@@ -169,7 +221,6 @@ body {
   color: var(--text-secondary);
 }
 
-/* About Page Styling */
 .back-link {
   color: #fbbf24;
   text-decoration: none;
@@ -184,7 +235,6 @@ body {
   font-weight: 600;
 }
 
-/* About Page Specific Styling */
 .about-page h2 {
   color: var(--accent-color);
   margin-top: 40px;
