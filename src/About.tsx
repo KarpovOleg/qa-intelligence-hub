@@ -42,8 +42,8 @@ export default function About() {
             <p><strong>AWS Lambda & Bedrock</strong></p>
             <p>
               When a failure is detected, a serverless <strong>AI Agent</strong> is triggered.
-              It performs an inference call to <strong>Claude 3.5 Sonnet</strong> to distinguish between
-              brittle selectors and genuine code regressions.
+              If <code>BEDROCK_MODEL_ID</code> is configured, the Lambda performs a Bedrock inference call to distinguish between
+              brittle selectors and genuine code regressions, with a heuristic fallback if Bedrock is unavailable.
             </p>
           </div>
 

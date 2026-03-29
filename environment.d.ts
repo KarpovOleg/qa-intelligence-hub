@@ -5,6 +5,7 @@ declare global {
             PROD_URL: string;
             STAGING_URL?: string;
             API_ENV: 'dev' | 'prod' | 'staging';
+            BEDROCK_MODEL_ID?: string;
         }
     }
 }

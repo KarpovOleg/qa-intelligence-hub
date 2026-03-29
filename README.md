@@ -1,19 +1,19 @@
 # 🚀 Intelligent Quality Engineering Hub
 
-A high-performance, AI-augmented Quality Observability Platform built with **AWS Amplify Gen 2**, **React 19**, and **Playwright**. This system demonstrates a closed-loop "Shift-Right" strategy by streaming real-time test telemetry to a cloud-native backend for automated AI triage.
+A high-performance, AI-augmented Quality Observability Platform built with **AWS Amplify Gen 2**, **React 19**, and **Playwright**. This system demonstrates a closed-loop strategy by streaming real-time test telemetry to a cloud-native backend for automated AI triage.
 
 ## 🛠 Tech Stack (2026 Standard)
 - **Frontend:** React 19, TypeScript, Vite, Recharts (Observability)
 - **Backend:** AWS Amplify Gen 2 (Infrastructure-as-Code)
 - **Database:** Amazon DynamoDB (Serverless NoSQL)
-- **AI/Logic:** AWS Lambda + Amazon Bedrock (Claude 3.5 Agentic Analysis)
+- **AI/Logic:** AWS Lambda + Amazon Bedrock (when `BEDROCK_MODEL_ID` is configured)
 - **Automation:** Playwright (Custom AWS Telemetry Reporter)
 
 ---
 
 ## 🛠️ Senior QA Engineering Standards
 
-### 1. Cloud-Native Quality Observability (Shift-Right Architecture)
+### 1. Cloud-Native Quality Observability
 *   **Infrastructure-as-Code (IaC)**: The project utilizes **Amplify Gen 2** to define the entire quality stack—including Authentication, a DynamoDB Data Lake, and Lambda Triage Functions—entirely in **TypeScript**. This approach ensures that the QA infrastructure is version-controlled, reproducible, and capable of scaling horizontally alongside the production application.
 *   **Real-Time Data Highway**: The integration of **AppSync (GraphQL) with WebSocket Subscriptions** (`observeQuery`) transitions the quality paradigm from "static reporting" to "live observability." WebSocket connectivity ensures the dashboard receives instant quality signals the moment a test completes in a remote CI/CD pipeline.
 *   **Decoupled Reporting Infrastructure**: The `AWSAmplifyReporter` decouples test execution from the reporting UI. This allows the Playwright engine to function as a "data producer" from any environment (Local, GitHub Actions, or Jenkins) while syncing to a centralized AWS Intelligence Lake.
@@ -51,6 +51,9 @@ npm install --legacy-peer-deps
 
 # Install Playwright browsers
 npx playwright install chromium
+
+# Bedrock model used for AI failure triage
+export BEDROCK_MODEL_ID=your-enabled-bedrock-model-id
 
 # Local Development (Cloud Sandbox)
 npx ampx sandbox
