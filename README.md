@@ -27,7 +27,7 @@ A high-performance, AI-augmented Quality Observability Platform built with **AWS
 *   **Global Type Augmentation**: The implementation of `environment.d.ts` to augment `NodeJS.ProcessEnv` provides total type-safety for environment variables. This eliminates a significant category of configuration errors during multi-environment test orchestration.
 
 ### 4. Defensive Engineering & Reliability
-*   **Built-in URL Normalization**: The `apiHelper.ts` utility implements a "Reliability First" strategy. Regex-based sanitization handles trailing slashes and environment-specific endpoints, ensuring the framework is resilient against human configuration errors in `.env` files.
+*   **Single SUT Configuration**: The Playwright browser checks and API checks share the same `SUT_URL` target, which keeps the demo setup simple and reduces environment drift during local runs.
 *   **Resilient Data Handling**: The `Dashboard.tsx` implementation utilizes defensive casting (`Number(curr.duration || 0)`) and conditional rendering for metrics. These guards ensure UI stability during high-frequency data ingestion and handle cases where initial telemetry may be incomplete.
 
 ### 5. Full-Cycle Quality Advocacy
@@ -55,6 +55,9 @@ npx playwright install chromium
 # Bedrock model used for AI failure triage
 export BEDROCK_MODEL_ID=your-enabled-bedrock-model-id
 
+# System under test used by the Playwright and API checks
+export SUT_URL=https://example.com
+
 # Local Development (Cloud Sandbox)
 npx ampx sandbox
 
@@ -62,7 +65,7 @@ npx ampx sandbox
 npm run dev
 
 # Triggers real-time telemetry sync to DynamoDB
-API_ENV=staging npx playwright test
+npx playwright test
 
 # Fetches the live Production outputs
 npx ampx generate outputs --app-id YOUR_APP_ID --branch main

@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
@@ -8,7 +9,7 @@ export default defineConfig({
     ['./tests/aws-reporter.ts']
   ],
   use: {
-    baseURL: 'https://main.d1kx4pj42arenf.amplifyapp.com/',
+    baseURL: process.env.SUT_URL || 'https://example.com',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },

@@ -8,7 +8,7 @@ Amplify.configure(outputs);
 const client = generateClient<Schema>();
 
 class AWSAmplifyReporter implements Reporter {
-  private promises: Promise<any>[] = [];
+  private promises: Promise<void>[] = [];
 
   onTestEnd(test: TestCase, result: PlaywrightTestResult) {
     const status = result.status === 'passed' ? 'PASSED' : 'FAILED';
